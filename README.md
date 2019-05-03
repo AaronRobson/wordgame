@@ -1,4 +1,8 @@
 # wordgame
+[![Build Status](https://travis-ci.org/AaronRobson/wordgame.svg?branch=master)](https://travis-ci.org/AaronRobson/wordgame)
+[![CircleCI](https://circleci.com/gh/AaronRobson/wordgame.svg?style=svg)](https://circleci.com/gh/AaronRobson/wordgame)
+[![Coverage Status](https://coveralls.io/repos/github/AaronRobson/wordgame/badge.svg?branch=master)](https://coveralls.io/github/AaronRobson/wordgame?branch=master)
+
 A solver for wordgames such as scrabble and countdown
 
 ## Install locally
