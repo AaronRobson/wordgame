@@ -15,8 +15,14 @@ class TestCountdown(unittest.TestCase):
 
 
 class TestCanWordBeMadeWithLetters(unittest.TestCase):
-    def test(self):
+    def test_positive(self):
         actual = wordgame._can_word_be_made_with_letters(
             word='bad',
             letters='abcd')
         self.assertTrue(actual)
+
+    def test_negative(self):
+        actual = wordgame._can_word_be_made_with_letters(
+            word='other',
+            letters='abcd')
+        self.assertFalse(actual)
