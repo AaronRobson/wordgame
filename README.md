@@ -16,6 +16,11 @@ python3 -m wordgame abcd --game countdown
 ```
 Which may result in words such as `bad`.
 
+## Run linting
+```bash
+python3 setup.py flake8
+```
+
 ## Run unit tests
 ```bash
 python3 -m unittest

@@ -33,7 +33,8 @@ def _main():
     parser = _make_parser()
     settings = parser.parse_args()
     if settings.game != 'countdown':
-        raise NotImplementedError('Only the countdown game type is currently supported.')
+        raise NotImplementedError(
+            'Only the countdown game type is currently supported.')
     results = wordgame.countdown(settings.letters)
     for result in results:
         print(result)
