@@ -5,6 +5,7 @@ import wordgame
 
 _WORDS = [
     'bad',
+    'rejoiced',
     'swearing',
 ]
 
@@ -19,6 +20,12 @@ class TestCountdown(unittest.TestCase):
         '''featured in 8 out 10 cats does Countdown'''
         actual = list(wordgame.countdown('aswinger', words=_WORDS))
         expected = 'swearing'
+        self.assertIn(expected, actual)
+
+    def test_rejoiced(self):
+        '''featured in 8 out 10 cats does Countdown'''
+        actual = list(wordgame.countdown('joecried', words=_WORDS))
+        expected = 'rejoiced'
         self.assertIn(expected, actual)
 
 
@@ -40,6 +47,13 @@ class TestCanWordBeMadeWithLetters(unittest.TestCase):
         actual = wordgame._can_word_be_made_with_letters(
             word='swearing',
             letters='aswinger')
+        self.assertTrue(actual)
+
+    def test_rejoiced(self):
+        '''featured in 8 out 10 cats does Countdown'''
+        actual = wordgame._can_word_be_made_with_letters(
+            word='rejoiced',
+            letters='joecried')
         self.assertTrue(actual)
 
 
