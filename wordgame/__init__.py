@@ -35,7 +35,8 @@ def _can_word_be_made_with_letters(letters, word):
 
 def _find_list_of_words():
     with open('words.txt', 'r') as f:
-        return f.readlines()
+        for line in f:
+            yield line.strip()
 
 
 def length_predicate(max_length):
