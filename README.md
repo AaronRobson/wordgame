@@ -16,12 +16,19 @@ python3 -m wordgame abcd --game countdown
 ```
 Which may result in words such as `bad`.
 
-## Run linting
+## Run both linting and unit testing
+To run both linting and unit tests run the following.
+```bash
+make
+```
+This consists of the following steps.
+
+### Run linting
 ```bash
 python3 setup.py flake8
 ```
 
-## Run unit tests
+### Run unit tests
 ```bash
 python3 -m unittest
 ```
