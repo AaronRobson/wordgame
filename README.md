@@ -12,7 +12,7 @@ python3 -m pip install . --user
 
 ## Run program
 ```bash
-python3 -m wordgame abcd --game countdown
+python3 -m wordgame abcd --game countdown --maximum-number-of-results 5
 ```
 Which may result in words such as `bad`.
 
