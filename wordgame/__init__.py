@@ -1,7 +1,7 @@
 from collections import Counter
 
 
-def countdown(letters, max_length=9, words=None):
+def countdown(letters, max_length=9, words=None, sort=True):
     if words is None:
         words = _find_list_of_words()
 
@@ -9,9 +9,15 @@ def countdown(letters, max_length=9, words=None):
         length_predicate(max_length),
         words
     )
-    for word in allowed_words_by_length:
-        if _can_word_be_made_with_letters(word=word, letters=letters):
-            yield word
+    results = (
+        word
+        for word in allowed_words_by_length
+        if _can_word_be_made_with_letters(word=word, letters=letters))
+
+    if sort:
+        results = sort_words(results)
+
+    return results
 
 
 class PartiallyOrderedCounter(Counter):
@@ -43,3 +49,10 @@ def length_predicate(max_length):
     def pred(value):
         return len(value) <= max_length
     return pred
+
+
+def sort_words(words):
+    return sorted(
+        sorted(words),
+        key=len,
+        reverse=True)
