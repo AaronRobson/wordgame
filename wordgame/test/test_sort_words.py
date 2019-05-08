@@ -9,7 +9,7 @@ class TestSortWords(unittest.TestCase):
         actual = list(sort_words([]))
         self.assertEqual(expected, actual)
 
-    def test_singlular(self):
+    def test_singular(self):
         expected = ['a']
         actual = list(sort_words(['a']))
         self.assertEqual(expected, actual)
