@@ -2,8 +2,11 @@ from collections import Counter
 
 
 def countdown(letters, max_length=9, words=None, sort=True):
+    letters = letters.lower()
+
     if words is None:
         words = _find_list_of_words()
+    words = (word.lower() for word in words)
 
     allowed_words_by_length = filter(
         length_predicate(max_length),

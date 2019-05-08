@@ -11,8 +11,26 @@ _WORDS = [
 
 
 class TestCountdown(unittest.TestCase):
+    def setUp(self):
+        self._WORDS_UPPER = [word.upper() for word in _WORDS]
+
     def test_simple(self):
         actual = list(wordgame.countdown('abcd', words=_WORDS))
+        expected = 'bad'
+        self.assertIn(expected, actual)
+
+    def test_upper_case_letters(self):
+        actual = list(wordgame.countdown('ABCD', words=_WORDS))
+        expected = 'bad'
+        self.assertIn(expected, actual)
+
+    def test_upper_case_words(self):
+        actual = list(wordgame.countdown('abcd', words=self._WORDS_UPPER))
+        expected = 'bad'
+        self.assertIn(expected, actual)
+
+    def test_upper_case_letters_and_words(self):
+        actual = list(wordgame.countdown('ABCD', words=self._WORDS_UPPER))
         expected = 'bad'
         self.assertIn(expected, actual)
 
