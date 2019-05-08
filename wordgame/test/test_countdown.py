@@ -15,34 +15,52 @@ class TestCountdown(unittest.TestCase):
         self._WORDS_UPPER = [word.upper() for word in _WORDS]
 
     def test_simple(self):
-        actual = list(wordgame.countdown('abcd', words=_WORDS))
+        actual = list(wordgame.countdown(
+            'abcd',
+            words=_WORDS,
+            skip_letters_validation=True))
         expected = 'bad'
         self.assertIn(expected, actual)
 
     def test_upper_case_letters(self):
-        actual = list(wordgame.countdown('ABCD', words=_WORDS))
+        actual = list(wordgame.countdown(
+            'ABCD',
+            words=_WORDS,
+            skip_letters_validation=True))
         expected = 'bad'
         self.assertIn(expected, actual)
 
     def test_upper_case_words(self):
-        actual = list(wordgame.countdown('abcd', words=self._WORDS_UPPER))
+        actual = list(wordgame.countdown(
+            'abcd',
+            words=self._WORDS_UPPER,
+            skip_letters_validation=True))
         expected = 'bad'
         self.assertIn(expected, actual)
 
     def test_upper_case_letters_and_words(self):
-        actual = list(wordgame.countdown('ABCD', words=self._WORDS_UPPER))
+        actual = list(wordgame.countdown(
+            'ABCD',
+            words=self._WORDS_UPPER,
+            skip_letters_validation=True))
         expected = 'bad'
         self.assertIn(expected, actual)
 
     def test_swearing(self):
         '''featured in 8 out 10 cats does Countdown'''
-        actual = list(wordgame.countdown('aswinger', words=_WORDS))
+        actual = list(wordgame.countdown(
+            'aswinger',
+            words=_WORDS,
+            skip_letters_validation=True))
         expected = 'swearing'
         self.assertIn(expected, actual)
 
     def test_rejoiced(self):
         '''featured in 8 out 10 cats does Countdown'''
-        actual = list(wordgame.countdown('joecried', words=_WORDS))
+        actual = list(wordgame.countdown(
+            'joecried',
+            words=_WORDS,
+            skip_letters_validation=True))
         expected = 'rejoiced'
         self.assertIn(expected, actual)
 
@@ -73,6 +91,20 @@ class TestCanWordBeMadeWithLetters(unittest.TestCase):
             word='rejoiced',
             letters='joecried')
         self.assertTrue(actual)
+
+
+class TestValidateCountdownLetters(unittest.TestCase):
+    def test_invalid_length(self):
+        with self.assertRaises(ValueError):
+            wordgame.validate_countdown_letters(
+                letters='abc'
+            )
+
+    def test_invalid_characters(self):
+        with self.assertRaises(ValueError):
+            wordgame.validate_countdown_letters(
+                letters='abcdefgh#'
+            )
 
 
 @patch("builtins.open")
