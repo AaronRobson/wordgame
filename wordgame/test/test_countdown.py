@@ -94,6 +94,12 @@ class TestCanWordBeMadeWithLetters(unittest.TestCase):
 
 
 class TestValidateCountdownLetters(unittest.TestCase):
+    def test_valid_letters(self):
+        expected = given = 'fdofieasg'
+        actual = wordgame.validate_countdown_letters(
+            letters=given)
+        self.assertEqual(actual, expected)
+
     def test_invalid_length(self):
         with self.assertRaises(ValueError):
             wordgame.validate_countdown_letters(
@@ -104,6 +110,12 @@ class TestValidateCountdownLetters(unittest.TestCase):
         with self.assertRaises(ValueError):
             wordgame.validate_countdown_letters(
                 letters='abcdefgh#'
+            )
+
+    def test_invalid_amount_of_a_letter(self):
+        with self.assertRaises(ValueError):
+            wordgame.validate_countdown_letters(
+                letters='xxabcdefg'
             )
 
 

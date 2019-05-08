@@ -31,6 +31,38 @@ def countdown(letters, words=None, sort=True, skip_letters_validation=False):
     return results
 
 
+# From: http://www.thecountdownpage.com/letters.htm
+_LETTER_DISTRIBUTION = {
+    'a': 15,
+    'e': 21,
+    'i': 13,
+    'o': 13,
+    'u': 5,
+
+    'b': 2,
+    'c': 3,
+    'd': 6,
+    'f': 2,
+    'g': 3,
+    'h': 2,
+    'j': 1,
+    'k': 1,
+    'l': 5,
+    'm': 4,
+    'n': 8,
+    'p': 4,
+    'q': 1,
+    'r': 9,
+    's': 9,
+    't': 9,
+    'v': 1,
+    'w': 1,
+    'x': 1,
+    'y': 1,
+    'z': 1,
+}
+
+
 def validate_countdown_letters(letters):
     if len(letters) not in [
             _COUNTDOWN_LETTER_COUNT,
@@ -44,6 +76,14 @@ def validate_countdown_letters(letters):
             raise ValueError(
                 f'{repr(letter)} is not a valid letter in countdown')
     letters = letters.lower()
+    for letter in sorted(list(set(letters))):
+        count_of_a_letter = letters.count(letter)
+        max_allowed = _LETTER_DISTRIBUTION[letter]
+        if max_allowed < count_of_a_letter:
+            raise ValueError(
+                f'There are too many {letter}s found in the countdown letters '
+                f'{count_of_a_letter} found '
+                f'but only {max_allowed} are allowed')
     return letters
 
 
