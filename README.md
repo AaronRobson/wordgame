@@ -12,7 +12,7 @@ python3 -m pip install . --user
 
 ## Run program
 ```bash
-python3 -m wordgame fdofieasg --game countdown --maximum-number-of-results 10
+python3 -m wordgame -n 10 fdofieasg
 ```
 Which should result in words such as `offside`.
 
