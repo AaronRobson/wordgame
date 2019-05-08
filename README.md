@@ -12,9 +12,9 @@ python3 -m pip install . --user
 
 ## Run program
 ```bash
-python3 -m wordgame abcd --game countdown --maximum-number-of-results 5
+python3 -m wordgame fdofieasg --game countdown --maximum-number-of-results 10
 ```
-Which may result in words such as `bad`.
+Which should result in words such as `offside`.
 
 ## Run both linting and unit testing
 To run both linting and unit tests run the following.
