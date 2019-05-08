@@ -16,9 +16,7 @@ class TestWordsList(unittest.TestCase):
     def test_no_whitespace_are_present(self):
         for word in self.words:
             for character in word:
-                self.assertFalse(
-                    character.isspace(),
-                    f'{word} should not have any whitespace characters')
+                self.assertFalse(character.isspace())
 
     def test_all_words_are_alphabetical(self):
         for word in self.words:
