@@ -40,4 +40,4 @@ python3 setup.py test
 ## Word list
 [words.txt](words.txt)
 
-### Source https://www.instructables.com/id/Python-and-Word-Lists/
+source: https://www.instructables.com/id/Python-and-Word-Lists/
