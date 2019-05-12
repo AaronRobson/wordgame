@@ -110,7 +110,6 @@ def _can_word_be_made_with_letters(letters, word):
 def _find_list_of_words():
     word_list_filepath = path.join(
         path.dirname(__file__),
-        '..',
         'words.txt')
     with open(word_list_filepath, 'r') as f:
         for line in f:

@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='wordgame',
-    version='0.2.0',
+    version='0.3.0',
     author='Aaron Robson',
     author_email='arobsonse@hotmail.co.uk',
     packages=['wordgame', 'wordgame.test'],
