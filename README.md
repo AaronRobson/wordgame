@@ -5,7 +5,14 @@
 
 A solver for wordgames such as scrabble and countdown
 
-## Install locally
+## Install
+
+### Install from PyPi
+```bash
+pip3 install wordgame
+```
+
+### Install locally
 ```bash
 python3 -m pip install . --user
 ```
@@ -35,6 +42,24 @@ python3 -m unittest
 or
 ```bash
 python3 setup.py test
+```
+
+## Packaging
+```bash
+python3 setup.py sdist bdist_wheel
+```
+
+### Uploading
+Ensure that the version number is distinct from the previous version.
+
+#### Upload to test instance of PyPi
+```bash
+twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+```
+
+#### Upload to the proper PyPi
+```bash
+twine upload dist/*
 ```
 
 ## Word list
