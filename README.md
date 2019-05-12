@@ -9,7 +9,7 @@ A solver for wordgames such as scrabble and countdown
 
 ### Install from PyPi
 ```bash
-pip3 install wordgame
+pip3 install wordgame --upgrade --user
 ```
 
 ### Install locally

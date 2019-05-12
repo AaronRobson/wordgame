@@ -1,4 +1,5 @@
 from collections import Counter
+from os import path
 
 from string import ascii_letters
 
@@ -107,7 +108,11 @@ def _can_word_be_made_with_letters(letters, word):
 
 
 def _find_list_of_words():
-    with open('words.txt', 'r') as f:
+    word_list_filepath = path.join(
+        path.dirname(__file__),
+        '..',
+        'words.txt')
+    with open(word_list_filepath, 'r') as f:
         for line in f:
             yield line.strip()
 
