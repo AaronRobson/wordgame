@@ -23,28 +23,35 @@ python3 -m wordgame -n 10 fdofieasg
 ```
 Which should result in words such as `offside`.
 
-## Run both linting and unit testing
-To run both linting and unit tests run the following.
+## Common operations
+To run linting, unit tests and package building run the following.
 ```bash
 make
 ```
-This consists of the following steps.
 
 ### Run linting
+```bash
+make check
+```
+or
 ```bash
 python3 setup.py flake8
 ```
 
 ### Run unit tests
 ```bash
-python3 -m unittest
+make test
 ```
 or
 ```bash
-python3 setup.py test
+python3 -m unittest
 ```
 
-## Packaging
+### Packaging
+```bash
+make build
+```
+or
 ```bash
 python3 setup.py sdist bdist_wheel
 ```
