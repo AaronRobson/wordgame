@@ -3,6 +3,14 @@ import unittest
 from wordgame import _find_list_of_words
 
 
+def _contains_whitespace(text):
+    if not text:
+        return False
+
+    parts = text.split()
+    return not (len(parts) == 1 and text == parts[0])
+
+
 class TestWordsList(unittest.TestCase):
     '''Tests that the contents of the words.txt file are valid'''
     @classmethod
@@ -13,10 +21,8 @@ class TestWordsList(unittest.TestCase):
         for word in self.words:
             self.assertNotEqual(len(word), 0)
 
-    def test_no_whitespace_are_present(self):
-        for word in self.words:
-            for character in word:
-                self.assertFalse(character.isspace())
+    def test_no_whitespace_is_present(self):
+        self.assertFalse(any(map(_contains_whitespace, self.words)))
 
     def test_all_words_are_alphabetical(self):
         for word in self.words:
