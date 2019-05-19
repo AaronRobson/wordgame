@@ -12,6 +12,11 @@ A solver for wordgames such as scrabble and countdown
 pip3 install wordgame --upgrade --user
 ```
 
+### Install from test PyPi
+```bash
+pip3 install wordgame --index-url https://test.pypi.org/simple/ --upgrade --user
+```
+
 ### Install locally
 ```bash
 python3 -m pip install . --user
