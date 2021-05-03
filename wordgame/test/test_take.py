@@ -4,7 +4,7 @@ from wordgame.__main__ import take
 
 
 class TestTake(unittest.TestCase):
-    def test_number_of_None(self):
+    def test_number_of_none(self):
         expected = [0, 1, 2]
         actual = list(take(None, range(3)))
         self.assertEqual(actual, expected)

@@ -40,7 +40,7 @@ make check
 ```
 or
 ```bash
-python3 setup.py flake8
+flake8
 ```
 
 ### Run unit tests
