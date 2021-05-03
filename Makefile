@@ -3,13 +3,19 @@
 .PHONY: all
 all: check test build
 
+.PHONY: install-packages
+install-packages:
+	pip3 install --upgrade \
+	  -r dev-requirements.txt \
+	  -r requirements.txt
+
 .PHONY: clean
 clean:
 	rm -rf dist build */*.egg-info *.egg-info
 
 .PHONY: check
 check:
-	python3 setup.py flake8
+	flake8
 
 .PHONY: test
 test:
