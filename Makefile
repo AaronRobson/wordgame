@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := all
 
 .PHONY: all
-all: check test build
+all: check build test
 
 .PHONY: install-packages
 install-packages:
@@ -24,3 +24,8 @@ test:
 .PHONY: build
 build: clean
 	python3 setup.py sdist bdist_wheel
+
+.PHONY: run
+run: build
+	echo expect reglazer https://www.youtube.com/watch?v=Taf-8b5JeTE
+	python3 -m wordgame eoeazrglr
