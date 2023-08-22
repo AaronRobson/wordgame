@@ -64,6 +64,17 @@ class TestCountdown(unittest.TestCase):
         expected = 'rejoiced'
         self.assertIn(expected, actual)
 
+    def test_reglazer(self):
+        '''featured in 8 out 10 cats does Countdown
+        https://www.youtube.com/watch?v=Taf-8b5JeTE
+        '''
+        actual = list(wordgame.countdown(
+            'eoeazrglr',
+            words=_WORDS,
+            skip_letters_validation=True))
+        expected = 'reglazer'
+        self.assertIn(expected, actual)
+
 
 class TestCanWordBeMadeWithLetters(unittest.TestCase):
     def test_positive(self):
